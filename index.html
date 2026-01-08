@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>200 Conseils Sommeil & Santé</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: white;
+            min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center;
+        }
+        header { text-align: center; padding: 40px 20px; }
+        h1 { color: #a1c4fd; margin-bottom: 5px; font-size: 2em; }
+        .container {
+            max-width: 600px; width: 85%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px; border-radius: 20px;
+            backdrop-filter: blur(15px);
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+        #conseil-box { min-height: 150px; display: flex; align-items: center; justify-content: center; }
+        #conseil-texte { font-size: 1.3em; line-height: 1.5; transition: 0.3s; color: #f0f0f0; }
+        .btn-next {
+            background: #a1c4fd; color: #0f2027;
+            padding: 18px 35px; border: none; border-radius: 50px;
+            font-weight: bold; cursor: pointer; font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(161, 196, 253, 0.4);
+            margin-top: 20px;
+        }
+        .btn-next:active { transform: scale(0.95); }
+        .affilie {
+            margin-top: 30px; padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px; font-size: 0.9em;
+        }
+        .btn-buy { color: #ff9a9e; text-decoration: none; font-weight: bold; display: block; margin-top: 10px; }
+        footer { margin-top: auto; padding: 20px; font-size: 0.8em; opacity: 0.5; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🌙 Le Guide des 200 Conseils</h1>
+    <p>Cliquez pour découvrir un secret de sommeil</p>
+</header>
+
+<div class="container">
+    <div id="conseil-box">
+        <div id="conseil-texte">Bienvenue. Prêt pour une nuit parfaite ?</div>
+    </div>
+    
+    <button class="btn-next" onclick="nouveauConseil()">CONSEIL SUIVANT ➔</button>
+    
+    <div class="affilie">
+        <span>💡 Recommandation d'expert :</span>
+        <a href="VOTRE_LIEN_ICI" class="btn-buy">Voir l'accessoire pour mieux dormir →</a>
+    </div>
+</div>
+
+<footer>
+    Conseils à but informatif. Consultez un médecin pour tout trouble persistant.
+</footer>
+
+<script>
+    const conseils = [
+        "Maintenez une température de 18°C dans votre chambre.",
+        "Éteignez les écrans 60 minutes avant le coucher.",
+        "La lumière bleue bloque la production de mélatonine.",
+        "Prenez une douche tiède (pas chaude) avant de dormir.",
+        "Évitez la caféine après 14 heures.",
+        "Pratiquez la cohérence cardiaque pendant 5 minutes.",
+        "Utilisez des rideaux 100% occultants.",
+        "Le magnésium aide à la relaxation musculaire.",
+        "Lisez un livre papier plutôt qu'une liseuse non filtrée.",
+        "Évitez l'alcool : il aide à s'endormir mais casse la qualité du sommeil.",
+        "Dormez à des heures régulières, même le week-end.",
+        "Pratiquez la méthode 4-7-8 pour calmer votre système nerveux.",
+        "Une cure de passiflore peut aider à réduire l'anxiété nocturne.",
+        "La mélisse est excellente pour les digestions difficiles qui empêchent de dormir.",
+        "Ne faites pas de sport intensif après 19h.",
+        "Utilisez un oreiller ergonomique adapté à votre position.",
+        "Si vous ne dormez pas après 20 min, levez-vous et changez de pièce.",
+        "Évitez les repas trop gras le soir.",
+        "L'exposition au soleil le matin règle votre horloge interne.",
+        "Réduisez le bruit ambiant avec des bouchons d'oreilles en silicone.",
+        "La valériane agit comme un sédatif naturel léger.",
+        "Évitez de travailler dans votre lit pour que votre cerveau associe le lit au repos.",
+        "Évitez de regarder l'heure si vous vous réveillez la nuit.",
+        "Faites une liste de vos soucis sur papier pour vider votre esprit avant de dormir.",
+        "Une chambre bien rangée réduit le stress visuel.",
+        "Utilisez une couverture lestée pour réduire l'anxiété.",
+        "La lavande en diffusion aide à baisser le rythme cardiaque.",
+        "Évitez les siestes de plus de 20 minutes l'après-midi.",
+        "Privilégiez les glucides lents le soir (riz, pâtes complètes).",
+        "Buvez une tisane de camomille 30 min avant le lit.",
+        "Éteignez les LED des appareils électriques dans la chambre.",
+        "Le ronflement peut être signe d'apnée, consultez un spécialiste.",
+        "Massez-vous les pieds avec de l'huile essentielle de lavande.",
+        "Portez des chaussettes légères pour favoriser la thermorégulation.",
+        "Testez la méditation guidée pour stopper le flux de pensées.",
+        "Limitez l'apport en eau juste avant de dormir pour éviter les réveils.",
+        "Utilisez un simulateur d'aube pour un réveil naturel.",
+        "Le manque de sommeil favorise la prise de poids.",
+        "Changez vos draps une fois par semaine pour une meilleure hygiène.",
+        "Aérez votre chambre 10 minutes chaque jour, même en hiver.",
+        "Évitez les discussions sérieuses ou stressantes avant le coucher.",
+        "Le tryptophane (dans la dinde, les œufs) aide à fabriquer la mélatonine.",
+        "Utilisez une application de bruit blanc si votre environnement est bruyant.",
+        "Pratiquez le yoga doux ou le stretching le soir.",
+        "La lumière du jour est essentielle pour le moral et le sommeil.",
+        "Ne forcez jamais le sommeil : attendez les signes de fatigue.",
+        "Les écrans de smartphones sont les ennemis n°1 du sommeil profond.",
+        "Prenez du temps pour décompresser après le travail.",
+        "Le thé contient de la théine, préférez le rooibos le soir.",
+        "Surélevez légèrement vos jambes si vous avez les jambes lourdes.",
+        "Écouter de la musique relaxante (432 Hz) baisse le cortisol.",
+        "Un matelas doit être changé tous les 10 ans.",
+        "La position sur le côté gauche facilite la digestion.",
+        "Le chocolat noir contient de la caféine, attention le soir.",
+        "Le manque de magnésium peut causer des impatiences dans les jambes.",
+        "Prenez le temps de respirer par le ventre pour évacuer la tension.",
+        "L'obscurité totale est nécessaire pour la glande pinéale.",
+        "Évitez de manger des aliments trop épicés le soir.",
+        "Faites des étirements du cou pour relâcher les tensions de la journée.",
+        "Un journal de gratitude peut améliorer la qualité du sommeil.",
+        "La vitamine D (soleil) influence la régulation du sommeil.",
+        "Ne dormez pas avec votre téléphone sous l'oreiller (ondes et stress).",
+        "Essayez de dîner au moins 3 heures avant d'aller au lit.",
+        "La nicotine est un stimulant qui retarde l'endormissement.",
+        "Les plantes vertes (comme la Sansevieria) purifient l'air de la chambre.",
+        "Une carence en fer peut perturber votre repos.",
+        "Le sommeil paradoxal est crucial pour la mémoire.",
+        "Le sommeil profond est le moment où le corps se répare.",
+        "Évitez les jus de fruits acides le soir.",
+        "Utilisez un pyjama en coton ou en soie pour laisser la peau respirer.",
+        "La lecture calme le rythme cardiaque.",
+        "Évitez les films d'action ou d'horreur avant de dormir.",
+        "Pratiquez la visualisation positive une fois au lit.",
+        "Le cerveau a besoin de routine pour se préparer au sommeil.",
+        "L'eschscholtzia est une plante efficace contre les réveils nocturnes.",
+        "Réduisez l'intensité lumineuse de toute la maison après 20h.",
+        "L'hiver, ne surchauffez pas la maison (max 19-20°C).",
+        "La sieste flash de 10 minutes recharge l'énergie mentale.",
+        "Évitez les boissons gazeuses le soir.",
+        "Les bruits soudains sont mieux filtrés si vous utilisez un ventilateur.",
+        "Apprenez à dire non aux sorties tardives si vous êtes épuisé.",
+        "Un bain de pieds chaud peut déclencher la somnolence.",
+        "L'anxiété est la première cause d'insomnie : parlez-en.",
+        "Le lit ne doit servir qu'au sommeil et à l'intimité.",
+        "Réduisez le sucre raffiné, il provoque des pics d'insuline perturbateurs.",
+        "Les oméga-3 (poissons gras) sont bons pour le système nerveux.",
+        "L'hypnose peut aider à reprogrammer vos nuits.",
+        "Ne dormez pas avec un animal si cela perturbe vos mouvements.",
+        "La pleine lune peut influencer le sommeil de certaines personnes.",
+        "L'apnée du sommeil non traitée augmente les risques cardiaques.",
+        "Une petite poignée d'amandes peut aider (contient du tryptophane).",
+        "Évitez les vêtements trop serrés pour dormir.",
+        "La respiration alternée (Yoga) équilibre les hémisphères cérébraux.",
+        "Regardez le ciel plutôt que votre téléphone le soir.",
+        "Le calme mental est plus important que le calme physique.",
+        "Si vous cogitez trop, levez-vous et écrivez vos pensées.",
+        "Le sommeil perdu ne se rattrape jamais totalement.",
+        "Un bon matelas est l'investissement santé n°1.",
+        "Fermez la porte de votre chambre pour limiter les distractions.",
+        "La méditation de pleine conscience réduit l'insomnie chronique.",
+        "Les hormones du stress (adrénaline) mettent du temps à redescendre.",
+        "La banane contient du potassium, bon pour la détente musculaire.",
+        "Pensez à changer votre oreiller tous les 2 ans.",
+        "Évitez d'avoir une télévision dans votre chambre.",
+        "La lumière rouge est la seule qui ne perturbe pas la mélatonine.",
+        "Faites un test de sommeil si vous êtes fatigué au réveil.",
+        "L'hydratation est importante, mais buvez surtout en journée.",
+        "Le café du matin ne doit pas remplacer un vrai petit-déjeuner.",
+        "Le manque de sommeil réduit vos défenses immunitaires.",
+        "Appréciez le silence avant d'éteindre la lumière.",
+        "Déconnectez le Wi-Fi la nuit pour un environnement plus neutre.",
+        "La température de vos mains et pieds doit être chaude pour dormir.",
+        "Les huiles essentielles d'agrumes (Petit Grain Bigarade) apaisent.",
+        "Le travail de nuit demande une gestion stricte de l'obscurité le jour.",
+        "Un sommeil de qualité améliore la concentration de 30%.",
+        "Le cycle de sommeil d'un adulte dure environ 90 minutes.",
+        "On rêve environ 2 heures par nuit, même si on ne s'en souvient pas.",
+        "La paralysie du sommeil est un phénomène bénin mais impressionnant.",
+        "Le somnambulisme est plus fréquent en période de grand stress.",
+        "Le bâillement est le signal d'alarme de votre cerveau.",
+        "Évitez les suppléments de vitamine C après 16h.",
+        "Les bruits de la nature (pluie, forêt) favorisent les ondes delta.",
+        "L'autohypnose est une technique puissante pour s'endormir.",
+        "Éloignez le réveil de votre vue pour ne pas stresser sur l'heure.",
+        "Ne forcez pas vos enfants à rester éveillés tard.",
+        "Le changement d'heure demande 3 jours d'adaptation au corps.",
+        "La sieste de récupération ne doit pas dépasser 15h00.",
+        "Évitez de manger devant un écran le soir.",
+        "Le cerveau nettoie ses toxines pendant le sommeil profond.",
+        "Dormir nu permet une meilleure régulation thermique du corps.",
+        "Le stretching du dos soulage les vertèbres avant la nuit.",
+        "Pensez à bien vous étirer au réveil comme un chat.",
+        "Le café décaféiné contient encore de petites traces de caféine.",
+        "Les troubles du sommeil peuvent être liés à la thyroïde.",
+        "La gratitude fait baisser la tension artérielle avant de dormir.",
+        "Apprenez à reconnaître votre 'train du sommeil'.",
+        "Si vous ratez un cycle, attendez le suivant (environ 90 min).",
+        "La lumière du téléphone est 100 fois plus forte que nécessaire.",
+        "L'aspirine ou l'ibuprofène peuvent parfois perturber le sommeil.",
+        "Un environnement trop calme peut parfois être stressant : testez un fond sonore.",
+        "Le ronflement peut être réduit en dormant sur le côté.",
+        "La qualité prime sur la quantité : 6h de bon sommeil valent mieux que 9h hachées.",
+        "Votre chambre doit être un sanctuaire de paix.",
+        "Le cerveau ne fait pas la différence entre un danger réel et un film stressant.",
+        "Prendre soin de son sommeil, c'est prendre soin de sa santé mentale.",
+        "Chaque heure avant minuit compte double (dicton souvent vrai).",
+        "Votre lit doit être confortable mais pas trop mou.",
+        "Le sommeil est le meilleur soin de beauté pour votre peau.",
+        "Bonne nuit et dormez bien !"
+    ];
+
+    function nouveauConseil() {
+        const index = Math.floor(Math.random() * conseils.length);
+        const texteElement = document.getElementById('conseil-texte');
+        
+        // Petit effet de fondu
+        texteElement.style.opacity = 0;
+        
+        setTimeout(() => {
+            texteElement.innerText = conseils[index];
+            texteElement.style.opacity = 1;
+        }, 200);
+    }
+</script>
+
+</body>
+  </html>
+  
