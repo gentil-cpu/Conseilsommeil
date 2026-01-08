@@ -21,28 +21,32 @@
             margin-top: 50px; text-align: center;
             border: 1px solid rgba(255,255,255,0.2);
         }
-        #conseil-texte { font-size: 1.3em; min-height: 120px; margin: 20px 0; line-height: 1.5; }
+        #conseil-texte { font-size: 1.3em; min-height: 120px; margin: 20px 0; line-height: 1.5; transition: opacity 0.2s; }
         .btn-next {
             background: #a1c4fd; color: #0f2027;
             padding: 15px 30px; border: none; border-radius: 50px;
-            font-weight: bold; cursor: pointer; font-size: 1.1em;
+            font-weight: bold; cursor: pointer; font-size: 1.1em; width: 100%; margin-bottom: 10px;
         }
-        .affilie-box { margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
-        .btn-buy { color: #ff9a9e; text-decoration: none; font-weight: bold; }
+        .btn-share {
+            background: #25D366; color: white;
+            padding: 12px 25px; border: none; border-radius: 50px;
+            font-weight: bold; cursor: pointer; text-decoration: none; display: inline-block; width: 100%;
+        }
+        .footer-ads { margin-top: 30px; width: 100%; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <h1>🌙 Conseil du Soir</h1>
-    <div id="conseil-texte">Cliquez pour découvrir votre premier conseil...</div>
+    <div id="conseil-texte">Prêt pour une meilleure nuit ? Cliquez ci-dessous...</div>
     
-    <button class="btn-next" onclick="nouveauConseil()">Conseil Suivant ➔</button>
+    <button class="btn-next" onclick="nouveauConseil()">VOIR UN CONSEIL ➔</button>
     
-    <div class="affilie-box">
-        <p>💡 Mon choix pour vous :</p>
-        <a href="VOTRE_LIEN_AMAZON" class="btn-buy">Voir l'accessoire recommandé →</a>
-    </div>
+    <a href="https://api.whatsapp.com/send?text=Regarde ce site, il donne des conseils géniaux pour mieux dormir ! 🌙 : https://gentil-cpu.github.io/Conseilsommeil/" 
+       class="btn-share" target="_blank">
+       Partager sur WhatsApp 📱
+    </a>
 </div>
 
 <script>
@@ -67,7 +71,6 @@
         "Changez vos draps une fois par semaine.",
         "Éloignez le réveil de votre vue nocturne.",
         "Le sommeil profond répare le corps, ne le négligez pas."
-        // ... (Vous pourrez en ajouter d'autres ici plus tard)
     ];
 
     function nouveauConseil() {
@@ -79,12 +82,10 @@
             element.style.opacity = 1;
         }, 200);
     }
-    </script>
-    
+</script>
+
 <script src="https://pl28426801.effectivegatecpm.com/31/70/17/317017ae85b9d827039ca3da8ac3e9ea.js"></script>
 <script src="https://pl28367845.effectivegatecpm.com/c5/50/00/c55000a444b71daa30647afc88592cc8.js"></script>
-    
-</script>
     
 </body>
 </html>
